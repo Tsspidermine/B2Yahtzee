@@ -49,8 +49,8 @@ def roll_dice():
     score_helper()
 
 # Score helper function
-yahtzee_count = 0
 def score_helper():
+    # Labels for the scores (small straights, large straights, full house, etc.)
     lbl_chance['text'] = "Chance: "+str(chance(dice_rolls))
     lbl_threes['text'] = "Three of a kind: "+str(three_of_kind(dice_rolls))
     lbl_fours['text'] = "Four of a kind: "+str(four_of_kind(dice_rolls))

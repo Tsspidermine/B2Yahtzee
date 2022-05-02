@@ -54,18 +54,24 @@ def full_house(dice_rolls):
 # TODO: I forgot to make sure it is a list from 1-6 (1,2,3,4,5,6), but forgot to account for
 # cases like a full house, where it's (2,2,2,5,5)
 def sm_straight(dice_rolls):
-    sm_rolls = []
-    sm_rolls.extend(dice_rolls)
-    sm_rolls.pop()
-    if sorted(sm_rolls) == sm_rolls:
+    previous_num = dice_rolls[0]
+    straight_count = 0
+    for i in range(5):
+        if dice_rolls[i] == previous_num + 1:
+            is_straight += 1
+        else:
+            pass #TODO
+        previous_num = dice_rolls[i]
+    if is_straight:
         return 30
-    return 0
+    else:
+        return 0
+
+        
 
 # TODO: Refer to line 54
 def lg_straight(dice_rolls):
-    if sorted(dice_rolls) == dice_rolls:
-        return 40
-    return 0
+    return "WIP"
 
 
 
