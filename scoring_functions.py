@@ -51,28 +51,32 @@ def full_house(dice_rolls):
             return 25
     return 0
 
-# TODO: I forgot to make sure it is a list from 1-6 (1,2,3,4,5,6), but forgot to account for
-# cases like a full house, where it's (2,2,2,5,5)
 def sm_straight(dice_rolls):
-    previous_num = dice_rolls[0]
+    previous_num = dice_rolls[0] - 1
     straight_count = 0
     for i in range(5):
         if dice_rolls[i] == previous_num + 1:
-            is_straight += 1
-        else:
-            pass #TODO
+            straight_count += 1
         previous_num = dice_rolls[i]
-    if is_straight:
+    # If there are 4 numbers in a sequence and it's not also a large straight, return 30 points
+    if straight_count >= 4 and lg_straight(dice_rolls) == 0:
         return 30
     else:
         return 0
 
         
 
-# TODO: Refer to line 54
 def lg_straight(dice_rolls):
-    return "WIP"
-
+    previous_num = dice_rolls[0] - 1
+    straight_count = 0
+    for i in range(5):
+        if dice_rolls[i] == previous_num + 1:
+            straight_count += 1
+        previous_num = dice_rolls[i]
+    if straight_count >= 5:
+        return 40
+    else:
+        return 0
 
 
 
